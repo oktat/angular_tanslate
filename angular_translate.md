@@ -241,9 +241,9 @@ Ebben a sorban a kulcs:
 
 * app.hello
 
-Ezeket a kulcsokat kell kigyüjtenünk, mivel ezek mellé fogjuk írni a fordításokat. A kulcsok JSON fájlokba fogjuk gyűjteni. Elsőként az src könyvtárba készítünk egy strings.json nevű állományt. Kézzel is megtehetjük, de a következő csomag segíti ezt a munkát. 
+Ezeket a kulcsokat kell kigyüjtenünk, mivel ezek mellé fogjuk írni a fordításokat. A kulcsok JSON fájlokba fogjuk gyűjteni. Elsőként az src könyvtárba készítünk egy strings.json nevű állományt. Kézzel is megtehetjük, de a következő csomag segíti ezt a munkát.
 
-Telepítsük a @vendure/ngx-translate-extract csomagot: 
+Telepítsük a @vendure/ngx-translate-extract csomagot:
 
 ```bash
 npm install @vendure/ngx-translate-extract --save-dev
