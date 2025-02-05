@@ -146,3 +146,19 @@ export class HomeComponent {
   }
 }
 ```
+
+## Kulcsok kiszedése
+
+```bash
+npm install @vendure/ngx-translate-extract --save-dev
+```
+
+```json
+"scripts": {
+  "extract": "ngx-translate-extract --input ./src --output ./src/strings.json --format json"
+},
+```
+
+```bash
+npm run extract
+```
