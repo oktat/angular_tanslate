@@ -292,3 +292,9 @@ public/i18n/hu.json:
 
 Ha újabb kulcsot hozok létre valamelyik .html fájlban, azt itt is fel kell venni.
 Innentől használható a többnyelvű program.
+
+## Példa
+
+Egy példát találunk a GitHub szerveren:
+
+* [https://github.com/oktat/angular_translate](https://github.com/oktat/angular_translate)
