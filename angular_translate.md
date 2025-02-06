@@ -95,7 +95,7 @@ export const appConfig: ApplicationConfig = {
 
 ## Az app komponens
 
-Az app.component.ts fájlban @Component dekorátor import kulcsához fel kell venni a TranslateModule-t.
+Az app.component.ts fájlban @Component dekorátor import kulcsához fel kell venni a TranslateModule-t, de szükség lesz a HoemComponent-re is.
 
 ```typescript
   imports: [
@@ -116,7 +116,7 @@ Be kell fecskendezni a TranslateService-t:
   constructor(private translateService: TranslateService) {}
 ```
 
-Inicializálni kell a translate objetumot az ngOnInit() metódusban:
+Inicializálni kell a translate objetumot az ngOnInit() metódusban. Ezt követően beállíthatjuk az alapértelmezett nyelvet is. Az alapértelmezett nyelv legyen most magyar. Az app.component.html fálban is legyen beállítva az alapértelmezetten kiválasztott nyelv, a **selected** attribútummal.
 
 ```typescript
   ngOnInit(): void {
@@ -128,8 +128,8 @@ Inicializálni kell a translate objetumot az ngOnInit() metódusban:
 Szükségünk lesz egy metódusra, ami beállítja az aktuális nyelvet:
 
 ```typescript
-  translateText(lang: any) {
-    this.translate.use(lang.target.value);
+  translateText(select: any) {
+    this.translate.use(select.target.value);
   }
 ```
 
@@ -187,6 +187,8 @@ app.component.html:
 <app-home></app-home>
 ```
 
+Vegyük észre a második option elemben a **selected** attribútumot. Ha változtatjuk az alapértelmezett nyelvet, itt is érdemes áthelyezni az attribútumot.
+
 ## A Home komponens
 
 A home komponensben is vegyünk fel legalább egy szöveget.
@@ -229,7 +231,7 @@ export class HomeComponent {
 
 ## Kulcsok kiszedése
 
-A forrásfájlokból ki kell gyűjtenünk a kulcsokat. De mik azok a kulcso?
+A forrásfájlokból ki kell gyűjtenünk a kulcsokat. De mik azok a kulcsok?
 
 Vegyük elő az app.component.html fájlt. Egy ilyen sort tettünk bele:
 
@@ -241,7 +243,7 @@ Ebben a sorban a kulcs:
 
 * app.hello
 
-Ezeket a kulcsokat kell kigyüjtenünk, mivel ezek mellé fogjuk írni a fordításokat. A kulcsok JSON fájlokba fogjuk gyűjteni. Elsőként az src könyvtárba készítünk egy strings.json nevű állományt. Kézzel is megtehetjük, de a következő csomag segíti ezt a munkát.
+Ezeket a kulcsokat kell kigyüjtenünk, mivel ezek mellé fogjuk írni a fordításokat. A kulcsokat JSON fájlokba fogjuk gyűjteni. Elsőként az src könyvtárba készítünk egy strings.json nevű állományt. Kézzel is megtehetjük, de a következő csomag segíti ezt a munkát.
 
 Telepítsük a @vendure/ngx-translate-extract csomagot:
 
@@ -290,11 +292,20 @@ public/i18n/hu.json:
 }
 ```
 
-Ha újabb kulcsot hozok létre valamelyik .html fájlban, azt itt is fel kell venni.
+Ha újabb kulcsot hozok létre valamelyik .html fájlban, azt itt is fel kell venni a public/i18n/en.json és public/i18n/hu.json fájlban.
+
 Innentől használható a többnyelvű program.
+
+## Indítás
+
+A projekt indítása:
+
+```bash
+ng serve --open
+```
 
 ## Példa
 
-Egy példát találunk a GitHub szerveren:
+A leírásban használt példát a GitHub szerveren:
 
 * [https://github.com/oktat/angular_translate](https://github.com/oktat/angular_translate)
