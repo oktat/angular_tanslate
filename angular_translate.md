@@ -201,7 +201,7 @@ home.component.html:
 <div>{{ 'home.title' | translate}}</div>
 ```
 
-A home komponens TypeScript állományában is fel kell vagyük a translate objektumot, és inicializálni kell.
+A home komponens TypeScript állományában importálni kell a dekorátorban a TranslateModule-t.
 
 Teljes kód:
 
@@ -219,13 +219,7 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
-  translate!: TranslateService;
-
-  constructor(private translateService: TranslateService) {}
-
-  ngOnInit(): void {
-    this.translate = this.translateService;    
-  }
+  
 }
 ```
 
